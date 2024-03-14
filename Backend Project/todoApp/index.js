@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
+require('dotenv').config(); 
 
-app.listen(3000, () => {
-  console.log("App is Running Successfully");
-});
+const PORT= process.env.PORT || 3000;
+
+app.use(express.json());
+
+const todoRoutes= require('./routes/todos');
