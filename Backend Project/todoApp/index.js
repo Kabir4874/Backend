@@ -14,12 +14,9 @@ app.listen(PORT, () => {
   console.log(`Server started successfully at ${PORT}`);
 });
 
-const dbConnect= require('./config/database');
+const dbConnect = require("./config/database");
 dbConnect();
 
-app.get('/', (req,res)=>{
-    res.send(`<h1>This is Homepage</h1>`)
-})
-
-
-
+app.get("/", (req, res) => {
+  res.send(`<h1>This is Homepage</h1>`);
+});
