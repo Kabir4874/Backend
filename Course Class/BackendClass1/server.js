@@ -30,5 +30,5 @@ mongoose
     console.log("Connection Successful");
   })
   .catch((error) => {
-    console.log("Received an error");
+    console.log("Received an error", error);
   });
