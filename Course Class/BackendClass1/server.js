@@ -21,3 +21,15 @@ app.post("/api/cars", (req, res) => {
   console.log(brand);
   res.send("Car submitted successfully");
 });
+
+
+// !Connect to mongodb
+const mongoose = require("mongoose");
+mongoose
+  .connect("mongodb://localhost:27017/myDatabase")
+  .then(() => {
+    console.log("Connection Successful");
+  })
+  .catch((error) => {
+    console.log("Received an error");
+  });
