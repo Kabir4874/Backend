@@ -4,7 +4,7 @@ const dbConnect = () => {
   mongoose
     .connect(process.env.DATABASE_URL)
     .then(() => {
-      console.log("Database connection i successful");
+      console.log("Database connection is successful");
     })
     .catch((error) => {
       console.log("Error in database connection");
