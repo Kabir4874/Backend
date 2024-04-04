@@ -22,8 +22,7 @@ app.post("/api/cars", (req, res) => {
   res.send("Car submitted successfully");
 });
 
-
-// !Connect to mongodb
+// !Connect to mongodb by mongoose
 const mongoose = require("mongoose");
 mongoose
   .connect("mongodb://localhost:27017/myDatabase")
