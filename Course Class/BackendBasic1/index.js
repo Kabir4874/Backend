@@ -9,3 +9,7 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
   res.send(`<h1>This is Heading1</h1>`);
 });
+
+app.post("/car", (req, res) => {
+  res.send("Received a post request");
+});
