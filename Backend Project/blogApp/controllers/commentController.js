@@ -16,6 +16,16 @@ exports.createComment = async (req, res) => {
         $push: { comments: savedComment._id },
       },
       { new: true }
-    ).populate('comments').exec();
-  } catch (err) {}
+    )
+      .populate("comments")
+      .exec();
+
+    res.json({
+      post: updatedPost,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      err: "Error while Creating comment",
+    });
+  }
 };

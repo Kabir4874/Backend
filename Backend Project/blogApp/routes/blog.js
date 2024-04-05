@@ -1,11 +1,14 @@
-const express= require('express');
-const router= express.Router();
+const express = require("express");
+const router = express.Router();
 
-// !import controller 
+// !import controller
+const { createComment } = require("../controllers/CommentController");
+const { createPost, getAllPosts } = require("../controllers/PostController");
 
+// !mapping create
+router.post("/comments/create", createComment);
+router.post("/posts/create", createPost);
+router.get("/posts", getAllPosts);
 
-// !mapping create 
-
-
-
-// !export 
+// !export
+module.exports = router;
