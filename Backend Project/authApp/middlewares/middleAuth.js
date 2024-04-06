@@ -15,8 +15,8 @@ exports.auth = (req, res, next) => {
     }
     // verify token
     try {
-      const decode = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = decode;
+      const payload = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = payload;
     } catch (err) {
       return res.status(401).json({
         success: false,
@@ -38,6 +38,23 @@ exports.isStudent = (req, res, next) => {
       return res.status(401).json({
         success: false,
         message: "this is a protected route for students",
+      });
+    }
+    next();
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: "User role cannot be verified",
+    });
+  }
+};
+
+exports.isAdmin = (req, res, next) => {
+  try {
+    if (req.user.role !== "Admin") {
+      return res.status(401).json({
+        success: false,
+        message: "this is a protected route for admin",
       });
     }
     next();
