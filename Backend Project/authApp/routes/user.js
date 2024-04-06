@@ -30,4 +30,9 @@ router.get("/admin", auth, isAdmin, (req, res) => {
   });
 });
 
+router.get("/getemail", auth, (req, res) => {
+  const id = req.user.id;
+  console.log(id);
+});
+
 module.exports = router;
